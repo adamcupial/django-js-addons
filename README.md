@@ -14,3 +14,4 @@ www: http://webdesign-log.pl
 ### ajax_tools
   * set of ajax tools, now includes:
     * render_to_json decorator
+    * ajaxify script for ajax form submitting
