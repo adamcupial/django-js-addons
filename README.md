@@ -1,5 +1,6 @@
 Author: Adam Cupiał
-www: webdesign-log.pl
+
+www: http://webdesign-log.pl
 
 # django-js-addons
 
