@@ -10,3 +10,7 @@ www: http://webdesign-log.pl
 
 ### Calendar
   * js calendar form widget, based on Dynarch Calendar 1.8
+
+### ajax_tools
+  * set of ajax tools, now includes:
+    * render_to_json decorator
