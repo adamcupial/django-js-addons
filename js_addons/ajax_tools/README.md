@@ -4,8 +4,9 @@ www: webdesign-log.pl
 # Ajax Tools
 
 ## DESCRIPTION
- Set of ajax tools for django
-  * render_to_json decorator - decorates view, returns json
+Set of ajax tools for django
+
+ * render_to_json decorator - decorates view, returns json
 
 ## INSTALLATION
 
