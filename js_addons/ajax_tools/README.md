@@ -39,22 +39,25 @@ just decorate your view with it:
         <input type="hidden" name="eventError" value="mySuperFailureEvent" />
         ....
     </form>
+    
+if there are no fields two generic events are propagated: GenericSuccess and GenericError
 
 3. on submit of the form it will be:
 
   * send to the url specified in the form 'action'
   * using the method specified in the form 'method'
-  * on success it starts event of name specified on *eventSuccess* field
+  * on success it starts event of name specified on *eventSuccess* field,
   * on error it starts event of name specified on *eventError* field
+  * both events will have message property - which contains response
 
 you can then catch the event higher in the DOM:
 
     jQuery(document).ready(function(){
 
-        //we'll catch events on body:
+        //we'll catch events on document:
 
-        jQuery(body).bind('mySuperSuccessEvent',function(event){
-            // do whatever you wish
+        jQuery(document).bind('mySuperSuccessEvent',function(event){
+            alert(event.message);
         });
 
     });
