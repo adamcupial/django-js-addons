@@ -1,12 +1,12 @@
 Author: Adam Cupiał
 www: webdesign-log.pl
 
-= Calendar widget =
+# Calendar widget
 
-== DESCRIPTION ==
+## DESCRIPTION
  js calendar form widget, based on Dynarch Calendar 1.8
 
-== INSTALLATION ==
+## INSTALLATION
 
  * copy 'calendar' directory from 'calendar/media' to your media directory
  * in your template head section add form media:
@@ -28,29 +28,27 @@ www: webdesign-log.pl
 
    }}}
 
-== USAGE ==
+## USAGE
 
 in your form just add widget to appropriate field:
-{{{
 
-from js_addons.calendar.widgets import CalendarWidget
+    from js_addons.calendar.widgets import CalendarWidget
 
-    MyForm(forms.Form):
-    ...
+        MyForm(forms.Form):
+        ...
 
-    birthday = forms.DateField(
-        label=u'Birthday',
-        help_text=u'(YYYY-MM-DD)',
-        widget=CalendarWidget(
-                date_format='%Y-%m-%d',
-                title_format='%b %Y'
-                )
-        )
+        birthday = forms.DateField(
+            label=u'Birthday',
+            help_text=u'(YYYY-MM-DD)',
+            widget=CalendarWidget(
+                    date_format='%Y-%m-%d',
+                    title_format='%b %Y'
+                    )
+            )
 
-    ...
+        ...
 
-}}}
 
-== TODO ==
+## TODO
  * pass min date, max date
  * full language support
