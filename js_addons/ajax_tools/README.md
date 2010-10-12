@@ -49,12 +49,12 @@ just decorate your view with it:
 
 you can then catch the event higher in the DOM:
 
-  jQuery(document).ready(function(){
+    jQuery(document).ready(function(){
 
-    //we'll catch events on body:
+        //we'll catch events on body:
 
-    jQuery(body).bind('mySuperSuccessEvent',function(event){
-        // do whatever you wish
+        jQuery(body).bind('mySuperSuccessEvent',function(event){
+            // do whatever you wish
+        });
+
     });
-    
-  });
