@@ -14,8 +14,8 @@ jQuery(document).ready(function(){
 
         var eventSuccess = new jQuery.Event(eventSuccessName);
         var eventError = new jQuery.Event(eventErrorName);
-        eventSuccess.form_data = form;
-        eventError.form_data = form;
+        eventSuccess.form_data = data;
+        eventError.form_data = data;
 
         jQuery.ajax({
            url: url,
