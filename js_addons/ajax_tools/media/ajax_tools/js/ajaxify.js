@@ -10,10 +10,12 @@ jQuery(document).ready(function(){
         var eventErrorName = form.find('input[name="eventError"]').val();
         if(eventSuccessName === undefined) eventSuccessName = 'GenericSuccess';
         if(eventErrorName === undefined) eventErrorName = 'GenericError';
-        
-        
+
+
         var eventSuccess = new jQuery.Event(eventSuccessName);
         var eventError = new jQuery.Event(eventErrorName);
+        eventSuccess.form_data = form;
+        eventError.form_data = form;
 
         jQuery.ajax({
            url: url,
