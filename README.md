@@ -13,5 +13,6 @@ www: http://webdesign-log.pl
 
 ### ajax_tools
   * set of ajax tools, now includes:
-    * render_to_json decorator
+    * render_to_json, ajax_required, ajax_message decorators
+    * ajax-only versions of django generic object_list, object_detail and direct_to_template (named accordingly ajax_only_[NAME])
     * ajaxify script for ajax form submitting
