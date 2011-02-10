@@ -30,7 +30,7 @@ def ajax_only_object_list(request, extra_context=None, template_name=None,
 
 
 @ajax_required
-def xhr_direct_to_template(request, template, extra_context=None,
+def ajax_only_direct_to_template(request, template, extra_context=None,
         mimetype=None, **kwargs):
     """standard django direct_to_template, only for ajax requests """
 
