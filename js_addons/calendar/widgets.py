@@ -12,7 +12,9 @@ calbtn = u"""<img src="%scalendar/cal.gif" alt="kalendarz" id="%s_btn" style="cu
         dateFormat       :    "%s",
         trigger :  "%s_btn",
         showTime  :    false,
-        titleFormat : "%s"
+        titleFormat : "%s",
+        min:%s,
+        max:%s
     });
 </script>"""
 
@@ -33,9 +35,17 @@ class CalendarWidget(forms.widgets.TextInput):
       title_format (default: '%b %Y')
 
     """
-    def __init__(self, attrs=None, date_format='%Y-%m-%d',title_format='%b %Y'):
+    def __init__(self, attrs=None, date_format='%Y-%m-%d',title_format='%b %Y',min_date=None, max_date=None):
         self.date_format = date_format
         self.title_format = title_format
+        if min_date:
+            self.min_date = min_date.strftime("%Y%m%d")
+        else:
+            self.min_date = 'null'
+        if max_date:
+            self.max_date = max_date.strftime("%Y%m%d")
+        else:
+            self.max_date = 'null'
         super(CalendarWidget, self).__init__(attrs)
 
     def _media(self):
@@ -62,7 +72,7 @@ class CalendarWidget(forms.widgets.TextInput):
             final_attrs['id'] = u'%s_id' % (name)
         id = final_attrs['id']
 
-        cal = calbtn % (settings.MEDIA_URL, id, id, self.date_format, id, self.title_format)
+        cal = calbtn % (settings.MEDIA_URL, id, id, self.date_format, id, self.title_format, self.min_date, self.max_date)
         a = u'<input%s class="calendar-input"/>%s' % (forms.util.flatatt(final_attrs), cal)
         return mark_safe(a)
 
