@@ -18,7 +18,7 @@ calbtn = u"""<img src="%(media_url)scalendar/cal.gif" alt="kalendarz" id="%(fiel
     });
 </script>"""
 
-calbtn_always_visible = u"""<div id="%(field_id)s_container" title="Kalendarz" />
+calbtn_always_visible = u"""<div id="%(field_id)s_container" title="Kalendarz"></div>
 <script type="text/javascript">
     Calendar.setup({
         cont     :    "%(field_id)s_container",
