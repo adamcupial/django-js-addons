@@ -1,6 +1,9 @@
 from decorators import ajax_required
 from django.views.generic.list_detail import object_list, object_detail
 from django.views.generic.simple import direct_to_template
+from django.template import RequestContext
+from django.http import HttpResponse
+from django.template.loader import get_template
 
 
 @ajax_required
@@ -36,3 +39,22 @@ def ajax_only_direct_to_template(request, template, extra_context=None,
 
     return direct_to_template(request, template, extra_context=None,
             mimetype=None, **kwargs)
+
+@ajax_required
+def ajax_form(request, template_name, form_class):
+
+    t = get_template(template_name)
+    if request.method == 'POST':
+        form = form_class(request.POST)
+        c = RequestContext(request, {
+            'form': form, })
+        if form.is_valid():
+            form.save()
+            return HttpResponse('', status=200)
+        else:
+            return HttpResponse(t.render(c), status=400)
+    else:
+        form = form_class()
+        c = RequestContext(request, {
+            'form': form, })
+        return HttpResponse(t.render(c))

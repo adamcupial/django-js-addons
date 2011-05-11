@@ -54,3 +54,15 @@ def ajax_required(f):
     wrap.__doc__ = f.__doc__
     wrap.__name__ = f.__name__
     return wrap
+
+def other_if_ajax(fn, other_fn, other_settings_dict=None):
+    """ returns other view (with additional params) if request is ajax
+    """
+
+    def process(request, *args, **kwargs):
+        if request.is_ajax():
+            kwargs.update(other_settings_dict or {})
+            return other_fn(request, *args, **kwargs)
+        else:
+            return fn(request, *args, **kwargs)
+    return process
