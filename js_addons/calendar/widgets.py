@@ -3,6 +3,7 @@ from django.conf import settings
 from django import forms
 import datetime, time
 from django.utils.safestring import mark_safe
+from django.core.validators import EMPTY_VALUES
 
 calbtn = u"""<img src="%(media_url)scalendar/cal.gif" alt="kalendarz" id="%(field_id)s_btn" style="cursor: pointer; float:left;position:relative;top:2px;" title="Kalendarz"
             onmouseover="this.style.background='#444444';" onmouseout="this.style.background=''" class="calendar-button"/>
@@ -108,8 +109,8 @@ class CalendarWidget(forms.widgets.TextInput):
         return calbtn
 
     def value_from_datadict(self, data, files, name):
-        dtf = forms.fields.DEFAULT_DATETIME_INPUT_FORMATS
-        empty_values = forms.fields.EMPTY_VALUES
+        dtf = settings.DATETIME_INPUT_FORMATS
+        empty_values = EMPTY_VALUES
 
         value = data.get(name, None)
         if value in empty_values:
